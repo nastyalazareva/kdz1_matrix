@@ -22,4 +22,4 @@ public:
     static StackMatrix addVal(StackMatrix a, StackMatrix b);
     static StackMatrix mulVal(StackMatrix a, StackMatrix b);
     static StackMatrix sumAll(const std::vector<StackMatrix>& ms);
-}
+};
