@@ -1,5 +1,4 @@
 #pragma once
-#include <array>
 #include <vector>
 #include <cstddef>
 #include <stdexcept>
@@ -10,12 +9,12 @@ class HeapMatrix {
 public:
     explicit HeapMatrix(std::size_t n); 
     HeapMatrix(std::size_t n, Elem fill);
-    ~HeapMatrix(); // освобождает память
+    ~HeapMatrix(); 
     
     Elem at(std::size_t r, std::size_t c) const;
     Elem& at(std::size_t r, std::size_t c);
     
-    std::size_t size() const {return n_; };
+    std::size_t size() const {return n_; }
     std::size_t bytes() const {return n_ * n_ * sizeof(Elem);}
     
     static HeapMatrix* addPtr(const HeapMatrix* a, const HeapMatrix* b);

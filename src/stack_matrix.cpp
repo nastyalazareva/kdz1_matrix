@@ -7,7 +7,7 @@ StackMatrix::StackMatrix(Elem fill){
 }
 Elem StackMatrix::at(std::size_t r, std::size_t c) const{
     if (r >= kStackN or c >= kStackN){
-        throw std::out_of_range("Index out of range");
+        throw std::out_of_range("Index out of range (r >= kstackN or c >= kStackN)");
     }
     else {
         return data_[kStackN * r + c];
@@ -15,7 +15,7 @@ Elem StackMatrix::at(std::size_t r, std::size_t c) const{
 }
 Elem& StackMatrix::at(std::size_t r, std::size_t c){
     if (r >= kStackN or c >= kStackN){
-        throw std::out_of_range("Index out of range");
+        throw std::out_of_range("Index out of range(r >= kstackN or c >= kStackN)");
     }
     else {
         return data_[kStackN * r + c];
@@ -63,7 +63,7 @@ StackMatrix StackMatrix::mulVal(StackMatrix a, StackMatrix b){
 }
 StackMatrix StackMatrix::sumAll(const std::vector<StackMatrix>& ms){
     StackMatrix c;
-    for (auto m: ms){
+    for (auto& m: ms){
         c = addRef(c, m);
     }
     return c;

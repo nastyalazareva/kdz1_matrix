@@ -1,0 +1,24 @@
+experiment,impl,n,build_type,run,time_ns
+A,Stack mulRef,500,Debug,1,606590791
+A,Stack mulRef,500,Debug,2,606742000
+A,Stack mulRef,500,Debug,3,605078292
+A,Stack mulRef,500,Debug,4,609609541
+A,Stack mulRef,500,Debug,5,606760708
+A,Stack mulVal,500,Debug,1,631690125
+A,Stack mulVal,500,Debug,2,632757958
+A,Stack mulVal,500,Debug,3,632065958
+A,Stack mulVal,500,Debug,4,648058042
+A,Stack mulVal,500,Debug,5,649945334
+A,Stack mulRef,500,Release,1,21542584
+A,Stack mulRef,500,Release,2,22093292
+A,Stack mulRef,500,Release,3,21973500
+A,Stack mulRef,500,Release,4,23809167
+A,Stack mulRef,500,Release,5,22632625
+A,Stack mulVal,500,Release,1,24696458
+A,Stack mulVal,500,Release,2,34650917
+A,Stack mulVal,500,Release,3,22883333
+A,Stack mulVal,500,Release,4,22466916
+A,Stack mulVal,500,Release,5,22458000
+A,HeapMatrix,1000,Debug,1,3555083
+A,HeapMatrix,2000,Debug,2,8798083
+A,HeapMatrix,4000,Debug,3,25001417

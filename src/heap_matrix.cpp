@@ -1,7 +1,7 @@
 #include "matrix/heap_matrix.hpp"
 HeapMatrix::HeapMatrix(std::size_t n): n_(n){
     if (n_ == 0){
-        throw std::invalid_argument("Invalid argument");
+        throw std::invalid_argument("Invalid argument (n = 0)");
     }
     data_ = new Elem[n*n];
 }
@@ -9,7 +9,7 @@ HeapMatrix::HeapMatrix(std::size_t n, Elem fill)
 : n_(n),
 data_(nullptr) {
     if (n_ == 0){
-        throw std::invalid_argument("Invalid argument");
+        throw std::invalid_argument("Invalid argument (n = 0)");
     }
     data_ = new Elem[n*n];
     for (std::size_t i=0; i < n_*n_; i++){
@@ -23,20 +23,20 @@ HeapMatrix::~HeapMatrix(){
 
 Elem HeapMatrix::at(std::size_t r, std::size_t c) const{
     if (r >= n_ or c >= n_){
-        throw std::out_of_range("Out of range");
+        throw std::out_of_range("Out of range (r >= n or c >= n)");
     }
     return data_[r * n_ + c];
 }
 Elem& HeapMatrix::at(std::size_t r, std::size_t c){
     if (r >= n_ or c >= n_){
-        throw std::out_of_range("Out of range");
+        throw std::out_of_range("Out of range (r >= n or c >= n)");
     }
     return data_[r * n_ + c];
 }
 
 HeapMatrix* HeapMatrix::addPtr(const HeapMatrix* a, const HeapMatrix* b){
     if((*a).size() != (*b).size()){
-        throw std::invalid_argument("Invalid argument");
+        throw std::invalid_argument("Invalid argument (different sizes of matrices)");
     }
     HeapMatrix* res = new HeapMatrix((*a).size());
     for (std::size_t i = 0; i < (*a).size(); i++){
@@ -49,7 +49,7 @@ HeapMatrix* HeapMatrix::addPtr(const HeapMatrix* a, const HeapMatrix* b){
 
 HeapMatrix* HeapMatrix::mulPtr(const HeapMatrix* a, const HeapMatrix* b){
     if((*a).size() != (*b).size()){
-        throw std::invalid_argument("Invalid argument");
+        throw std::invalid_argument("Invalid argument (different sizes of matrix)");
     }
     HeapMatrix* res = new HeapMatrix((*a).size(), 0);
     for (std::size_t i = 0; i < (*a).size(); i++){
@@ -67,7 +67,8 @@ HeapMatrix* HeapMatrix::sumAll(const std::vector<const HeapMatrix*>& ms){
     HeapMatrix* res = new HeapMatrix(s, 0);
     for (auto m: ms){
         if((*m).size() != s){
-            throw std::invalid_argument("Invalid argument");
+            delete res;
+            throw std::invalid_argument("Invalid argument (different sizes of matrices)");
         }
         HeapMatrix* nr = addPtr(res, m);
         delete res;
