@@ -19,6 +19,39 @@ A,Stack mulVal,500,Release,2,34650917
 A,Stack mulVal,500,Release,3,22883333
 A,Stack mulVal,500,Release,4,22466916
 A,Stack mulVal,500,Release,5,22458000
-A,HeapMatrix,1000,Debug,1,3555083
-A,HeapMatrix,2000,Debug,2,8798083
-A,HeapMatrix,4000,Debug,3,25001417
+A,HeapMatrix,1000,Debug,1,2600667
+A,HeapMatrix,1000,Debug,2,2435792
+A,HeapMatrix,1000,Debug,3,2086250
+A,HeapMatrix,1000,Debug,4,1719042
+A,HeapMatrix,1000,Debug,5,1628833
+A,HeapMatrix,2000,Debug,1,5446416
+A,HeapMatrix,2000,Debug,2,4940708
+A,HeapMatrix,2000,Debug,3,4502125
+A,HeapMatrix,2000,Debug,4,4308834
+A,HeapMatrix,2000,Debug,5,4073542
+A,HeapMatrix,4000,Debug,1,12811291
+A,HeapMatrix,4000,Debug,2,12429334
+A,HeapMatrix,4000,Debug,3,11480125
+A,HeapMatrix,4000,Debug,4,11615291
+A,HeapMatrix,4000,Debug,5,11386875
+A,HeapMatrix,1000,Release,1,2587750
+A,HeapMatrix,1000,Release,2,2536417
+A,HeapMatrix,1000,Release,3,2210750
+A,HeapMatrix,1000,Release,4,1821250
+A,HeapMatrix,1000,Release,5,1607916
+A,HeapMatrix,2000,Release,1,4050625
+A,HeapMatrix,2000,Release,2,3835416
+A,HeapMatrix,2000,Release,3,3780541
+A,HeapMatrix,2000,Release,4,3684042
+A,HeapMatrix,2000,Release,5,3543667
+A,HeapMatrix,4000,Release,1,11960792
+A,HeapMatrix,4000,Release,2,11408416
+A,HeapMatrix,4000,Release,3,11925167
+A,HeapMatrix,4000,Release,4,11307791
+A,HeapMatrix,4000,Release,5,11350125
+B,HeapMatrix,50,Debug,1,173161208
+B,HeapMatrix,100,Debug,1,159192750
+B,HeapMatrix,250,Debug,1,161213750
+B,HeapMatrix,500,Debug,1,159795542
+B,HeapMatrix,10000,Debug,1,195129583
+B,HeapMatrix,2000,Debug,1,198065541

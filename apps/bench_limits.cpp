@@ -2,16 +2,22 @@
 #include <iostream>
 #include "matrix/stack_matrix.hpp"
 #include "matrix/heap_matrix.hpp"
+void crashtest(){
+    HeapMatrix a(10, 1);
+    HeapMatrix b = a; 
+}
 void ref(){
     StackMatrix a(2), b(4);
     for (int i = 0; i < 3; ++i){
         doNotOptimize(StackMatrix::mulRef(a, b));
     }
     Timer t1;
+    auto time = t1.duration();
     for (int i = 0; i < 5; ++i){
         t1.reset();
         doNotOptimize(StackMatrix::mulRef(a, b));
-        std::cout <<"A,Stack mulRef,500,Release,"<<i + 1 << "," <<  t1.duration() << std::endl;
+        time = t1.duration();
+        std::cout <<"A,Stack mulRef,500,Release,"<<i + 1 << "," << time << std::endl;
     }
 }
 
@@ -21,10 +27,12 @@ void val(){
         doNotOptimize(StackMatrix::mulVal(a, b));
     }
     Timer t1;
+    auto time = t1.duration();
     for (int i = 0; i < 5; ++i){
         t1.reset();
         doNotOptimize(StackMatrix::mulVal(a, b));
-        std::cout <<"A,Stack mulVal,500,Release," << i + 1 << ","<<  t1.duration() << std::endl;
+        time = t1.duration();
+        std::cout <<"A,Stack mulVal,500,Release," << i + 1 << ","<< time << std::endl;
     }
 }
 
@@ -41,19 +49,30 @@ void lim5(){
 }
 void matr_1000(){
     StackMatrix a(2);
+    a.at(6, 7) = 67;
+    doNotOptimize(a);
     std::cout << sizeof(a);
 }
 void heap(){
-    Timer t;
-    HeapMatrix a(4000, 2);
-    std::cout << "A,HeapMatrix,4000,Debug,1," << t.duration();
+    for (int i = 0; i < 3; ++i){
+        HeapMatrix a(1000, 2);
+        doNotOptimize(a);
+    }
+    for (int i = 0; i < 5; ++i){
+        Timer t;
+        HeapMatrix a(1000, 2);
+        doNotOptimize(a);
+        auto time = t.duration();
+        std::cout << "A,HeapMatrix,1000,Release," << i + 1 << ","<< time << std::endl;
+    }
 }
 int main(){
-    ref();
-    val();
-    //lim1();
+    crashtest();
+    // ref();
+    // val();
+    // lim1();
     // lim3();
-    //lim5();
+    // lim5();
     // matr_1000();
     // heap();
 }
