@@ -1,6 +1,8 @@
 #pragma once
 #include <cstddef>
 #include <cstdint>
+#include <vector>
+
 
 struct Naive{
     bool a;
@@ -31,3 +33,7 @@ struct Forced{
 static_assert(sizeof(Naive) == 32, "Naive wrong");
 static_assert(sizeof(Packed) == 24, "Packed wrong");
 static_assert(sizeof(Forced) == 22, "Forced wrong");
+
+std::uint64_t sNaive(std::vector<Naive>& sp);
+std::uint64_t sPacked(std::vector<Packed>& v);
+std::uint64_t sForced(std::vector<Forced>& v);
