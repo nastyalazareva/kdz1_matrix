@@ -2,8 +2,14 @@
 #include <iostream>
 #include "matrix/stack_matrix.hpp"
 #include "matrix/heap_matrix.hpp"
+#include <cmath>
 int stack(){
     Timer t;
+    for(int i = 0; i < 3; ++i){
+        StackMatrix a;
+        a.at(6, 7) = 67;
+        doNotOptimize(a);
+    }
     for (int k = 1; k < 10000000; k *= 2){
         t.reset(); 
 
@@ -14,8 +20,8 @@ int stack(){
         }
         auto time = t.duration();
         if (time >= 100'000'000){
-            std::cout << time << std::endl;
-            return k;
+            std::cout << "B,StackMatrix,500,Release,5,"<< std::round((static_cast<double>(time) / k) * 100.00) / 100.00  << std::endl;
+            return 0;
         }
     }
     return -1;
@@ -23,6 +29,11 @@ int stack(){
 
 int heap(std::size_t n){
     Timer t;
+    for(int i = 0; i < 3; ++i){
+        HeapMatrix a(n);
+        a.at(6, 7) = 67;
+        doNotOptimize(a);
+    }
     for (int k = 1; k < 100000000; k *= 2){
         t.reset(); 
 
@@ -33,7 +44,7 @@ int heap(std::size_t n){
         }
         auto time = t.duration();
         if (time >= 100'000'000){
-            std::cout << "time: " << time << std::endl;
+            std::cout << "B,HeapMatrix," << n <<",Release,5," << std::round((static_cast<double>(time) / k) * 100.00) / 100.00  << std::endl;
             return k;
         }
     }
@@ -42,6 +53,11 @@ int heap(std::size_t n){
 
 int heap2(std::size_t n){
     Timer t;
+    for (int i = 0; i < 3; ++i){
+        HeapMatrix a(n);
+        a.at(6, 7) = 67;
+        doNotOptimize(a);
+    }
     for (int k = 1; k < 100000000; k *= 2){
         t.reset(); 
 
@@ -52,19 +68,25 @@ int heap2(std::size_t n){
         }
         auto time = t.duration();
         if (time >= 100'000'000){
-            std::cout << "time: " << time << std::endl;
-            return k;
+            std::cout << "B,2HeapMatrix," << n <<",Release,5," << std::round((static_cast<double>(time) / k) * 100.00) / 100.00  << std::endl;
+            return 0;
         }
     }
     return -1;
 }
 int main(){
-    // std::cout << stack();
-    std::cout << "50: " << heap2(50) << std::endl;
-    std::cout << "100: " << heap2(100) << std::endl;
-    std::cout << "250: " << heap2(250) << std::endl;
-    std::cout << "500: " << heap2(500) << std::endl;
-    std::cout << "1000: " << heap2(1000) << std::endl;
-    std::cout << "2000: " << heap2(2000) << std::endl;
+    stack();
+    heap(50);
+    heap(100);
+    heap(250);
+    heap(500);
+    heap(1000);
+    heap(2000);
+    heap2(50);
+    heap2(100);
+    heap2(250);
+    heap2(500);
+    heap2(1000);
+    heap2(2000);
     return 0;
 }

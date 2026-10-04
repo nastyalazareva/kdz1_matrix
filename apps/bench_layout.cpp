@@ -67,7 +67,7 @@ void forc(){
 }
 int main(){
     print();
-    // nai();
-    // pac();
-    // forc();
+    nai();
+    pac();
+    forc();
 }

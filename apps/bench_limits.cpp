@@ -67,12 +67,12 @@ void heap(){
     }
 }
 int main(){
-    crashtest();
-    // ref();
-    // val();
-    // lim1();
-    // lim3();
-    // lim5();
-    // matr_1000();
-    // heap();
+    // crashtest();
+    ref();
+    val();
+    lim1();
+    lim3();
+    lim5();
+    matr_1000();
+    heap();
 }
